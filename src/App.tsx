@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { io } from "socket.io-client";
 
 const socket = io("http://localhost:3000"); // Connect to the backend show that port frontend is connected to backend
 
 function App() {
 	const [message, setMessage] = useState("");
-	const [messages, setMessages] = useState([]);
+	const [messages, setMessages] = useState<{ message: string }[]>([]);
 
 	// Listen for incoming messages
 	useEffect(() => {
